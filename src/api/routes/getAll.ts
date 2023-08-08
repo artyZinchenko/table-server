@@ -7,15 +7,15 @@ const route = express.Router();
 route.use(getCurrentUser);
 
 export const getAll = route.get('/', async (_req, res) => {
-  try {
-    const users = await getUsers();
+    try {
+        const users = await getUsers();
 
-    return res.status(200).json({
-      users,
-    });
-  } catch (error) {
-    return res.status(500).json({
-      message: 'There was an error when fetching users',
-    });
-  }
+        return res.status(200).json({
+            users,
+        });
+    } catch (error) {
+        return res.status(500).json({
+            message: 'There was an error when fetching users',
+        });
+    }
 });

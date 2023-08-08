@@ -5,18 +5,18 @@ import { checkUser } from '../../services';
 const dataSource = DATA_SOURCES.jwtDataSourse;
 
 export const verifyToken = async (
-  token: string | null
+    token: string | null
 ): Promise<IUser | null> => {
-  try {
-    if (!token) throw new Error('wrong token');
-    const decodedToken = jwt.verify(token, dataSource.SECRET as string);
+    try {
+        if (!token) throw new Error('wrong token');
+        const decodedToken = jwt.verify(token, dataSource.SECRET as string);
 
-    const user = await checkUser(decodedToken as DecodedToken);
+        const user = await checkUser(decodedToken as DecodedToken);
 
-    if (!user) return null;
-    return user;
-  } catch (err) {
-    console.log(err);
-    return null;
-  }
+        if (!user) return null;
+        return user;
+    } catch (err) {
+        console.log(err);
+        return null;
+    }
 };

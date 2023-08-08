@@ -1,36 +1,36 @@
 export const UserQueries = {
-  GetUsers: `
+    GetUsers: `
   SELECT id, username, email, lastLogin, registrationDate, blocked FROM user`,
-  AddUser: `
+    AddUser: `
   INSERT INTO user (username, email, lastLogin, password, registrationDate)
     VALUES (?, ?, NOW(), ?, NOW());
   `,
-  LoginUser: `
+    LoginUser: `
   SELECT *
   FROM user
   WHERE (email = ?)
   AND password = ?;`,
-  UpdateLastLogin: `
+    UpdateLastLogin: `
   UPDATE user
   SET lastLogin = NOW()
   WHERE id = ?;
   `,
-  FindUser: `
+    FindUser: `
   SELECT * FROM user
   WHERE id = ?
   AND username = ?;
   `,
-  UpdateBlocked: `
+    UpdateBlocked: `
   UPDATE user
   SET blocked = 1
   WHERE id IN (?);
   `,
-  UpdateUnblocked: `
+    UpdateUnblocked: `
   UPDATE user
   SET blocked = 0
   WHERE id IN (?);
   `,
-  DeleteUsers: `
+    DeleteUsers: `
   DELETE FROM user
   WHERE id IN (?);`,
 };
