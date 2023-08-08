@@ -16,8 +16,12 @@ export const addUser = route.post('/addUser', async (req, res) => {
         await insertUser(newUser);
         res.status(200).json({ message: 'Data added successfully' });
     } catch (error) {
+        let message = 'Error adding user. ';
+        if (error instanceof Error) {
+            message += error.message;
+        }
         res.status(500).json({
-            message: 'Error adding user',
+            message,
         });
     }
 });
