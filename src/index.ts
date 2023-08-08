@@ -1,6 +1,6 @@
 import express from 'express';
 import cors from 'cors';
-import * as MySQLConnector from './api/utils/mysql.connector';
+import MySQLConnector from './api/utils/connector';
 import { addUser } from './api/routes/addUser';
 import { getAll } from './api/routes/getAll';
 import { login } from './api/routes/login';

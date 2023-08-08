@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken';
-import { DATA_SOURCES } from '../../../config/vars.config';
+import { DATA_SOURCES } from '../../../config/dataSources';
 import { DecodedToken, IUser } from '../../models';
 import { checkUser } from '../../services';
 const dataSource = DATA_SOURCES.jwtDataSourse;

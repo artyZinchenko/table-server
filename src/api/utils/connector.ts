@@ -1,10 +1,10 @@
 import { createPool, Pool } from 'mysql2';
-import { DATA_SOURCES } from './../../config/vars.config';
+import { DATA_SOURCES } from '../../config/dataSources';
 const dataSource = DATA_SOURCES.mySqlDataSource;
 
 let pool: Pool;
 
-export const init = () => {
+const init = () => {
   try {
     pool = createPool({
       connectionLimit: dataSource.DB_CONNECTION_LIMIT,
@@ -22,7 +22,7 @@ export const init = () => {
   }
 };
 
-export const execute = <T>(query: string, params: any[]): Promise<T> => {
+const execute = <T>(query: string, params: any[]): Promise<T> => {
   try {
     if (!pool)
       throw new Error(
@@ -40,4 +40,9 @@ export const execute = <T>(query: string, params: any[]): Promise<T> => {
     console.error('[mysql.connector][execute][Error]: ', error);
     throw new Error('failed to execute MySQL query');
   }
+};
+
+export default {
+  init,
+  execute,
 };

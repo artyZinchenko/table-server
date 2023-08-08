@@ -8,8 +8,6 @@ export const getCurrentUser = async (
   next: NextFunction
 ) => {
   try {
-    console.log('usssser');
-
     const extractedToken = extractToken(req);
     const user = await verifyToken(extractedToken);
 

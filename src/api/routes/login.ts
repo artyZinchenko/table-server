@@ -1,7 +1,7 @@
 import express from 'express';
 import { loginUser, newLastLogin } from '../services';
 import jwt from 'jsonwebtoken';
-import { DATA_SOURCES } from '../../config/vars.config';
+import { DATA_SOURCES } from '../../config/dataSources';
 const dataSource = DATA_SOURCES.jwtDataSourse;
 
 const route = express.Router();
