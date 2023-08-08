@@ -11,14 +11,14 @@ const errorHandling = (
     _next: NextFunction
 ) => {
     if (err.name === 'CastError') {
-        return res.status(400).send({ error: 'malformatted id' });
+        return res.status(400).send({ message: 'malformatted id' });
     } else if (err.name === 'ValidationError') {
-        return res.status(400).json({ error: err.message });
+        return res.status(400).json({ message: err.message });
     } else if (err.name === 'ECONNRESET') {
         console.log('Client closed connection');
-        return res.status(400).json({ error: err.message });
+        return res.status(400).json({ message: err.message });
     } else if (err.message === 'User is blocked') {
-        return res.status(403).json({ error: err });
+        return res.status(403).json({ message: err });
     } else {
         console.log('Middleware Error Hadnling');
         const errStatus = err.statusCode || 500;
@@ -32,7 +32,7 @@ const errorHandling = (
 };
 
 const unknownEndpoint = (_req: Request, res: Response) => {
-    res.status(404).send({ error: 'unknown endpoint' });
+    res.status(404).send({ message: 'unknown endpoint' });
 };
 
 export default { errorHandling, unknownEndpoint };

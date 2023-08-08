@@ -17,7 +17,7 @@ const init = () => {
 
         console.debug('MySql Adapter Pool generated successfully');
     } catch (error) {
-        console.error('[mysql.connector][init][Error]: ', error);
+        console.error('Error ', error);
         throw new Error('failed to initialized pool');
     }
 };
@@ -37,7 +37,7 @@ const execute = <T>(query: string, params: any[]): Promise<T> => {
             });
         });
     } catch (error) {
-        console.error('[mysql.connector][execute][Error]: ', error);
+        console.error('Error ', error);
         throw new Error('failed to execute MySQL query');
     }
 };

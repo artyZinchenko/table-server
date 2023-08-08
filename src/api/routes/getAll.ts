@@ -15,7 +15,7 @@ export const getAll = route.get('/', async (_req, res) => {
         });
     } catch (error) {
         return res.status(500).json({
-            message: 'There was an error when fetching users',
+            message: 'Error fetching users',
         });
     }
 });

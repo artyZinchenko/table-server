@@ -17,7 +17,7 @@ export const addUser = route.post('/addUser', async (req, res) => {
         res.status(200).json({ message: 'Data added successfully' });
     } catch (error) {
         res.status(500).json({
-            message: 'There was an error when fetching users',
+            message: 'Error adding user',
         });
     }
 });

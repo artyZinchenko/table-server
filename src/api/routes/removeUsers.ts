@@ -21,7 +21,7 @@ export const removeUsers = route.delete(
             return res.status(200).json({ users: result });
         } catch (error) {
             return res.status(500).json({
-                message: 'There was an error when deleting user',
+                message: 'Error deleting user',
             });
         }
     }
